@@ -11,7 +11,7 @@ class Solution(object):
             while j<n and chars[i]==chars[j]:
                 j+=1
             if j-i>1:
-                chars[i+1:j]=str(j-i)
+                chars[i+1:j]=str(j-i) #this is atrocius, we are converting the number to string and then adding it to the list
                 n=len(chars)
                 # we need to go back to where the last char was and start from there
                 # that is we need to go back to where the updated list that we visited so far ends.
