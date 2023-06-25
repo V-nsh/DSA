@@ -39,8 +39,23 @@ class Solution(object):
             T_i0 = max(T_i0, T_i1+price)
             T_i1 = max(T_i1, -price)
         return T_i0
+    
+    # kadane's algorithm
+    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/39038/kadanes-algorithm-since-no-one-has-mentioned-about-this-so-far-in-case-if-interviewer-twists-the-input/
+    def maxProfitKadane(self, prices):
+        # this approach is useful if we had the difference of prices instead of prices itself
+        # eg: if prices = [1,7,4,11] what if we are given something like prices = [0, 6, -3, 7]
+        # calculating the difference between the lowest and largest price is basically adding the difference between all elements
+        # this works for both the prices and difference
+        currMax, maxSoFar = 0, 0
+        for i in range(1, len(prices)):
+            currMax = max(0, currMax + prices[i]-prices[i-1])
+            maxSoFar = max(currMax, maxSoFar)
+        return maxSoFar
+
 if __name__=="__main__":
     s = Solution()
-    prices = [7,1,5,3,6,4]
+    # prices = [7,1,5,3,6,4]
     # prices = [7,6,4,3,1]
-    print(s.maxProfitOptimized(prices))
+    prices = [0, 6, -3, 7] #difference of prices of prices = [1,7,4,11]
+    print(s.maxProfitKadane(prices))
