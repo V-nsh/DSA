@@ -35,12 +35,13 @@ class Solution(object):
         T_i0, T_i1 = -sys.maxsize, -prices[0]
 
         for price in prices:
+            T_i0_old = T_i0
             T_i0 = max(T_i0, T_i1+price)
-            T_i1 = max(T_i1, T_i0-price)
+            T_i1 = max(T_i1, T_i0_old-price)
         return T_i0
 
 if __name__=="__main__":
     s = Solution()
     prices = [7,1,5,3,6,4]
     # prices = [7,6,4,3,1]
-    print(s.maxProfit(prices))
+    print(s.maxProfitOptimized(prices))
