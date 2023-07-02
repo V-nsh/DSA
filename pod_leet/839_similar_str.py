@@ -29,7 +29,7 @@ class Solution(object):
             if i not in visited:
                 self.dfs(i, graph, visited)
                 count += 1
-
+        print(graph)
         return count
 
     def dfs(self, node, graph, visited):
