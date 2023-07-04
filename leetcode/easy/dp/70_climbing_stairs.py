@@ -52,5 +52,5 @@ class Solution(object):
 if __name__=='__main__':
     n = 5
     s = Solution()
-    # print(s.climbStairsBrute(n))
-    print(s.climbingStairsOptimized(n))
+    print(s.climbStairsBrute(n))
+    # print(s.climbingStairsOptimized(n))
