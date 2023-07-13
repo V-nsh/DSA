@@ -25,7 +25,36 @@ class Solution(object):
     
 if __name__ == '__main__':
     # flowerbed = [1,0,0,0,1,0,0]
-    # flowerbed = [1, 0, 0, 0, 1]
-    flowerbed = [1, 0, 0]
+    '''
+     1 0 0 0 1
+     ^
+     i = 0
+    flower[i] == 1: continue \/
+
+    1 0 0 0 1
+    ^ ^
+    i = 1
+    flower[i-1] == 0 and flower[i+1] == 0
+    yaha flower plant nahi kar sakte hai
+
+    1 0 0 0 1
+    ^ ^ ^
+    i = 2
+    flower[i-1]  and flower[i+1] ==0
+    yaha to karenge
+    flower[i] = 1
+
+    1 0 1 0 1
+    '''
+
+
+    '''
+    0 0 0 0 0 >
+            ^   
+    i = 4
+
+    '''
+    flowerbed = [0, 0, 0, 0, 1]
+    # flowerbed = [1, 0, 0]
     n = 1
     print(Solution().canPlaceFlowers(flowerbed, n))
