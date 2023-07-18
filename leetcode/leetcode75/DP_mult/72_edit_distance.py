@@ -38,6 +38,8 @@ class Solution(object):
         m = len(word1)
         n = len(word2)
         dp = [[0 for _ in range(n+1)] for _ in range(m+1)]
+        # the reason behind this is that, if we start from an empty string at [i, 0] then to change it to word2, that is the word we have kept on top, we will need to insert i elements
+        # thus dp[i][0] = i
         for i in range(m+1):
             dp[i][0] = i
         for j in range(n+1):
