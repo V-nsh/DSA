@@ -1,0 +1,2 @@
+class TaglingTree(object):
+    pass
