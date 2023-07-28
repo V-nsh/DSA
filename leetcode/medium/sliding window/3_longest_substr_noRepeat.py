@@ -13,3 +13,4 @@ class Solution(object):
                 left += 1
             charSet.add(s[right])
             ans = max(ans, right - left + 1)
+        return ans
