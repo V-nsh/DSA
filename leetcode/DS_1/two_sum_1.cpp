@@ -13,7 +13,7 @@ public:
         {
             int num2 = target - nums[i];
 
-            if (ns.find(num2) != ns.end())
+            if (ns.find(num2) != ns.end()) //if you find the number in the hashmap
             {
                 sol.push_back(ns[num2]);
                 sol.push_back(i);
