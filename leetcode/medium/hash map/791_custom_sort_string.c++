@@ -1,18 +1,22 @@
-#include <string>
-#include <map>
-#include <iostream>
+#include<iostream>
+#include<map>
+#include<string>
 
 using namespace std;
 
-std::string specificOrder(std::string &x, std::string &y) {
+// also see: CarTrade Practice\coding ninjas\customSortString.cpp
+
+class Solution {
+public:
+    string customSortString(string order, string s) {
     map<char, int> bucket;
     string ans;
 
-    for(auto s: x){
-        bucket[s]++;
+    for(auto a: s){
+        bucket[a]++;
     }
 
-    for(auto b: y){
+    for(auto b: order){
         if(bucket.find(b) != bucket.end()){
             // map: the target string that is to be sorted
             // key: the characters in the string
@@ -29,22 +33,6 @@ std::string specificOrder(std::string &x, std::string &y) {
         ans += s;
     }
 
-    // std::map<char, int>::iterator it = bucket.begin();
-
-    // while(it != bucket.end()) {
-    //     cout << "key: " << it->first << " value: " << it->second << "\n";
-    //     ++it;
-    // }
-
     return ans;
-    
-}
-
-int main() {
-    string s1, s2, res;
-    s1 = "acabd";
-    s2 = "abc";
-    res = specificOrder(s1, s2);
-    cout << res;
-    return 0;
-}
+    }
+};
