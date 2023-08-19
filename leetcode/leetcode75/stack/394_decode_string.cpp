@@ -15,19 +15,21 @@ public:
             {
                 stk.push(c);
             } else if (c==']') {
+                // the string we need to build for reps
                 string st = "";
-                while((!stk.empty()) && (stk.top() != '[')) {
+                while((!stk.empty()) && (stk.top() != '[')) { //if we encounter a [, there will definitely be a digit below that
                     st  = stk.top()+st;
                     stk.pop();
                 }
                 stk.pop();
                 string curr = st;
                 string count = "";
-                // stk.pop();
+                // build the string
                 while((!stk.empty()) && isdigit(stk.top())) {
                     count = stk.top() + count;
                     stk.pop();
                 }
+                // count amount of times
                 int cnt = stoi(count)-1;
                 while(cnt) {
                     st += curr;
