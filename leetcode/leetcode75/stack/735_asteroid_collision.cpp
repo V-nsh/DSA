@@ -65,17 +65,24 @@ public:
             // }
 
             int current = asteroids[i];
+            // if the incoming asteroid is moving in positive direction it's going right, thus it won't crash with anything, so push.
             if(current > 0 || res.empty()) {
                 res.push_back(current);
             } else {
-                while(!res.empty() && res.back()>0 && (res.back() < abs(current))) {
+                //otherwise the incoming asteroid is negative
+                // if it's negative we need to check if the previous one was positive and the incoming asteroid is greater than the last one
+                // we pop or destroy the last asteroid until the condition holds.
+                while(!res.empty() && res.back()>0 && (res.back() < abs(current))) { 
                     res.pop_back();
                 }
+                // if equal both asteroids destroy each other
                 if (!res.empty() && res.back()== abs(current))
                 {
                     res.pop_back();
-                } else if (res.empty() || res.back() < 0) {
-                        res.push_back(current);
+                } 
+                // else there are no asteroids or the one before it is also moving in the left, ie negative direction.
+                else if (res.empty() || res.back() < 0) {
+                    res.push_back(current);
                 }
             }
             
