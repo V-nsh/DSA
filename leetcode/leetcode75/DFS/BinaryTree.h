@@ -15,12 +15,18 @@ struct TreeNode {
 
 class Tree {
 
-public:
+private:
+    /*
+    create a new node.
+    */
     TreeNode* createRoot(int val) {
         return new TreeNode(val);
     }
 
 public:
+    /*
+    Binary Search tree insertion.
+    */
     TreeNode* insertNodeBST(TreeNode*& root, int val) {
         if(root==nullptr) {
             return createRoot(val);
@@ -35,6 +41,9 @@ public:
     }
 
 public:
+    /*
+    General binary tree insertion.
+    */
     TreeNode* insertNode(TreeNode*& root, int val) {
         if(root==nullptr){
             return createRoot(val);
@@ -63,6 +72,9 @@ public:
     }
 
 public:
+    /*
+    Level order/BFS traversal.
+    */
     void levelOrder(TreeNode*& root) {
         if(root==nullptr) {
             std::cout << "";
