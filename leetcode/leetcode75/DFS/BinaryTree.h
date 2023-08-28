@@ -15,11 +15,11 @@ struct TreeNode {
 
 class Tree {
 
-private:
+public:
     /*
     create a new node.
     */
-    TreeNode* createRoot(int val) {
+    TreeNode* createNode(int val) {
         return new TreeNode(val);
     }
 
@@ -29,7 +29,7 @@ public:
     */
     TreeNode* insertNodeBST(TreeNode*& root, int val) {
         if(root==nullptr) {
-            return createRoot(val);
+            return createNode(val);
         }
 
         if(val > root->val) {
@@ -46,7 +46,7 @@ public:
     */
     TreeNode* insertNode(TreeNode*& root, int val) {
         if(root==nullptr){
-            return createRoot(val);
+            return createNode(val);
         }
         std::vector<TreeNode*> queue;
         queue.push_back(root);
@@ -57,14 +57,14 @@ public:
             if(current->left!=nullptr) {
                 queue.push_back(current->left);
             } else {
-                current->left = createRoot(val);
+                current->left = createNode(val);
                 return root;
             }
 
             if(current->right!=nullptr) {
                 queue.push_back(current->right);
             } else {
-                current->right = createRoot(val);
+                current->right = createNode(val);
                 return root;
             }
         }
