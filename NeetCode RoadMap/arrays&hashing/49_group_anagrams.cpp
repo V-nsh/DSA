@@ -14,7 +14,7 @@ public:
     first I sort, then insert the same, with index, in a map that has the sorted string and a list of indices and a copy of og because we're sorting the original and a solution vector of vectors.
     this is bizzare.
     time: O(MNlogN) where M is the length of strs and N is the average length of string in strs.
-    space: yes. (it's O(M+M+M+sizeof the map))
+    space: yes. (it's O(M+M+M+...sizeof the map times M))
     */
     vector<vector<string>> groupAnagramsSorting(vector<string>& strs) {
         vector<vector<string>> sol;
