@@ -17,7 +17,13 @@ public:
     int evalRPN(vector<string>& tokens) {
         stack<int> st;
         unordered_map<string, std::function<int (int, int)> > map = {
-            {"+", [] (int a, int b) {return a+b;}},
+            /*
+             general structure of lambda functions
+             [ capture-list ] ( parameters ) -> return-type {
+                    // Lambda function body
+                }
+            */
+            {"+", [] (int a, int b) -> int {return a+b;}}, 
             {"-", [] (int a, int b) {return a-b;}},
             {"*", [] (int a, int b) {return a*b;}},
             {"/", [] (int a, int b) {return a/b;}},
