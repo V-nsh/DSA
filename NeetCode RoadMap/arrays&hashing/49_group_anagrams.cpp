@@ -56,12 +56,12 @@ public:
 
 public:
     struct VectorHasher {
-    size_t operator()(const vector<int>& V) const {
-        size_t hash = V.size();
-        for (auto i : V)
-        hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
-        return hash;
-    }
+        size_t operator()(const vector<int>& V) const {
+            size_t hash = V.size();
+            for (auto i : V)
+            hash ^= i + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+            return hash;
+        }
     };
 
 public:
