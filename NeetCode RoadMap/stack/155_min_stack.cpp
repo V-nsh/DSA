@@ -8,7 +8,7 @@ using namespace std;
 class MinStack {
 private:
     vector<int> stack;
-    vector<int> mins;
+    vector<int> mins; //keep a track of minimum value we find till ith position/opration.
     int min_val;
 
 public:
@@ -19,6 +19,11 @@ public:
     void push(int val) {
         stack.push_back(val);
         mins.push_back(min(min_val, val));
+        if(!mins.empty()) {
+            min_val = min(mins.back(), val);
+        } else {
+            min_val = val;
+        }
     }
     
     void pop() {
