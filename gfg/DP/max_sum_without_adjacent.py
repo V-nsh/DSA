@@ -75,7 +75,7 @@ if __name__=='__main__':
     include = 15
     exclude = 13
     '''
-	arr  [5, 5, 10, 100, 10, 5]
+	arr =  [5, 5, 10, 100, 10, 5]
 	'''
     it1:
     new_include = 0+5 = 5
