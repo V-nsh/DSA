@@ -7,6 +7,14 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int top = 0, bot = matrix.size()-1;
+        /*
+        we first do a binary search on the rows, given the entire matrix is sorted, we can take advantage of that
+        if the first element of current row is smaller than target then the element is definitely in some row above current
+        else if the target is greater than last element of current row then the target is definitely in some row below current,
+        else the target is definitely in current row or is not present in the matrix.
+
+        after this we are only left to do a binary search on the current row.
+        */
         while (top<=bot)
         {
             int current = top + (bot-top) / 2;
