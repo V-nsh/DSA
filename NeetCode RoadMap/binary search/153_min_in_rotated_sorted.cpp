@@ -29,6 +29,11 @@ public:
     }
 
 public:
+    /*
+    the idea is, if the current element is greater than the right most element then the smaller element is definitely towards the right side because it is rotated.
+    if it is smaller than we are in the right side of the array already and now it's just binary search, or think of it as shrinking the right side
+    i.e the rotated part towards the first element of the rotated array.
+    */
     int findMin(vector<int>& nums) {
         int left = 0, right = nums.size()-1, mid = 0;
         while(left<right) {
