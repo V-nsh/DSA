@@ -5,6 +5,12 @@ using namespace std;
 
 class Solution {
 public:
+    /*
+    the element can either be in left sorted part or right rotated part, so we first see where our middle is right now.
+    it can be in right or left, but in either case we need to see which part of that region we want to consider.
+    say we are in left sorted array meaning there's a rotated part on right so we need to see if the target is in left or right.
+    if we are on right sorted part then we do a simple binary search on it.
+    */
     int search(vector<int>& nums, int target) {
         int left = 0, right = nums.size()-1, mid = 0;
         while(left<=right) {
