@@ -33,17 +33,49 @@ public:
         }
         return fleet;
     }
+
+public:
+    int carFleetStack(int target, vector<int>& position, vector<int>& speed) {
+        if (position.size() == 1)
+        {
+            return 1;
+        }
+        
+        vector<pair<int, double>> map;
+        vector<double> mono_stack;
+        double currTime = 0.0;
+
+        for(int i=0; i<position.size(); i++) {
+            map.push_back({position[i], (target-position[i]) / (double)speed[i]});
+        }
+        sort(map.begin(), map.end(), greater<pair<int,double>>());
+        mono_stack.push_back(map[0].second);
+
+        for (int i = 1; i < position.size(); i++)
+        {
+            currTime = map[i].second;
+            if (currTime > mono_stack.back())
+            {
+                mono_stack.push_back(currTime);
+            }
+        }
+        return mono_stack.size();
+    }
+
 };
 
 int main() {
     // int target = 12;
     // vector<int> position = {10,8,0,5,3};
     // vector<int> speed = {2,4,1,1,3};
-    int target = 10;
-    vector<int> position = {6,8};
-    vector<int> speed = {2,3};
+    // int target = 10;
+    // vector<int> position = {6,8};
+    // vector<int> speed = {2,3};
+    int target = 17;
+    vector<int> position = {8,12,16,11,7};
+    vector<int> speed = {6,9,10,9,7};
     Solution sol;
-    int ans = sol.carFleet(target, position, speed);
+    int ans = sol.carFleetStack(target, position, speed);
     cout << ans << endl;
 
     return 0;
