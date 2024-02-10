@@ -7,6 +7,9 @@ using namespace std;
 
 class Solution {
 public:
+    /*
+        TODO
+    */
     int jobSchedulingBrute(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
         int maxProfit = profit[0];
 
